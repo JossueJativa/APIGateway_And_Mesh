@@ -1,0 +1,1 @@
+from .UserController import user_blueprint
