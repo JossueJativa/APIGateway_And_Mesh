@@ -8,12 +8,12 @@
 ### Abrir el WS02 e ingresar
 Ubicacion de WSO2:
 ```bash
-> cd C:\Users\user\GitRepositories\UDLA\Integracion\wso2am-4.5.0\bin
+cd C:\Users\user\GitRepositories\UDLA\Integracion\wso2am-4.5.0\bin
 ```
 
 Ejecutar el API Manager de WSO2
 ```bash
-> .\api-manager.bat --start
+.\api-manager.bat --start
 ```
 
 Entrar a la siguiente pagina para acceder al api manager desde el navegador: [https://localhost:9443/publisher/apis](https://localhost:9443/publisher/apis)
@@ -24,3 +24,10 @@ si es que esta sin iniciar Secion, ingresar con las credenciales de `username: a
 
 ### Documentación
 [Documentacion de Istio](https://istio.io/latest/docs/setup/getting-started/)
+
+### Abrir el Istio para ingresar
+Ubicacion de Istio:
+```bash
+cd C:\Program Files\istio-1.26.0\bin
+```
+
