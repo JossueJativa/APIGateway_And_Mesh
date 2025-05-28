@@ -21,7 +21,7 @@ def token_required(f):
         else:
             return jsonify({'message': 'Token is missing!'}), 401
         
-        verify_url = 'http://localhost:5000/verify'
+        verify_url = 'http://auth-service/verify'
         try:
             response = requests.get(verify_url, headers=headers, timeout=3)
             if response.status_code != 200:

@@ -53,19 +53,29 @@ kubectl delete -f proxi/order-service.yml
 kubectl delete -f proxi/payment-service.yml
 ```
 
+### Realizar algun cambio para hacer un rollout:
+```bash
+kubectl rollout restart deployment auth-deployment
+kubectl rollout restart deployment order-deployment
+kubectl rollout restart deployment payment-deployment
+```
+
 ### Verificamos los pods y servicios esten corriendo
 ```bash
 kubectl get pods
 kubectl get svc
-kubectl get gateway
-kubectl get virtualservice
+```
+
+### Ver contenedor con Kiali
+```bash
+istioctl dashboard kiali 
 ```
 
 ### Realizar el port forwarding para comunicar los servicios
 ```bash
-kubectl port-forward svc/auth-service 5000:5000
-kubectl port-forward svc/order-service 5001:5001
-kubectl port-forward svc/payment-service 5002:5002
+kubectl port-forward svc/auth-service 5000:80
+kubectl port-forward svc/order-service 5001:80
+kubectl port-forward svc/payment-service 5002:80
 ```
 
 ## API GATEWAY con WSO2:

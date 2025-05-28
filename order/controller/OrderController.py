@@ -6,7 +6,7 @@ import requests
 order_blueprint = Blueprint('order', __name__)
 
 def has_valid_payment(order_id, user_id, auth_header):
-    payment_url = 'http://localhost:5002/payment'
+    payment_url = 'http://payment-service/payment'
     try:
         payment_response = requests.get(payment_url, headers={
             'Authorization': auth_header
