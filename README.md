@@ -89,7 +89,7 @@ Ubicacion de WSO2:
 cd C:\Users\user\GitRepositories\UDLA\Integracion\wso2am-4.5.0\bin
 ```
 
-Ejecutar el API Manager de WSO2
+### Ejecutar el API Manager de WSO2
 ```bash
 .\api-manager.bat --start
 ```
@@ -97,3 +97,51 @@ Ejecutar el API Manager de WSO2
 Entrar a la siguiente pagina para acceder al api manager desde el navegador: [https://localhost:9443/publisher/apis](https://localhost:9443/publisher/apis)
 
 si es que esta sin iniciar Secion, ingresar con las credenciales de `username: admin` y `password: admin`
+
+### Entrar a la pagina de publixher de API Manager 
+[https://localhost:9443/publisher](https://localhost:9443/publisher)
+
+Luego apareceran opciones para crear un api, donde nosotros escogemos el `Start From Scratch`
+Donde pondremos
+* Nombre de nuestra aplicacion
+* Contexto "Ejemplo: /api/weather"
+* version
+* Endpoint a apuntar de la aplicación (Si se creo con el Service Mesh, poner el puerto que estas haciendo forwarding)
+
+Y en la parte de resources nosotros vamos a poner los endpoints que nosotros queremos que se transcurran
+Por ejemplo en la parte de verify ponemos:
+* HTTP Veb: POST
+* Enter URI pattern: /verify
+
+O
+
+* HTTP Verb: GET
+* Enter URI Pattern: /users/{userId}
+
+Y le damos al + para que se agregue, como estamos controlando un swagger, ponemos que en eh header nos manden la authorization
+
+Expandimos la parte del post para que nos aparezcan los `parametros` y con ello ponemos en body con el contenttype de `application/json` y que es requerido y enviamos
+
+y le damos guardar
+
+### Crear aplicacion
+Para la aplicacion y manejo de solicitudes, se le da el siguiente contexto de dev portal, primero entramos a la aplicacion en esta url:
+
+[https://localhost:9443/devportal/](https://localhost:9443/devportal/)
+
+y en la parte superior izquierda le damos click en aplicaciones
+
+Luego le damos click en `Agregar Nueva Aplicacion` donde ponemos
+* Nombre de la aplicacion
+* solicitudes por minuto
+* Descipcion de aplicacion opcional
+
+Le damos a guardar, en la parte izquierda aparecera lo que dice `fichas oauth2` y en esa le damos click
+
+Bajamos toda la pagina y le damos click en `Generate keys`
+
+### Suscripcion a aplicacion del API
+Volvemos a la pantalla de APIs y seleccionamos la aplicacion que deseamos suscribir
+
+y en la parte derecha aparecera un boton que dice `Suscripciones` damos click ahi y seleccionamos la aplicacion que nosotros escogimos y le ponemos suscribirse
+
